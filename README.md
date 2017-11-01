@@ -1,1 +1,1 @@
-Learning Scala - mostly CodeWars tasks here :) 
+functional programming playground, mostly SML, hopefully some Scala soon as well :) 
