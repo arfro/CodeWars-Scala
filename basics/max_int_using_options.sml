@@ -17,3 +17,7 @@ fun max(l : int list) =
 			then maxV 
 			else SOME (hd l)
 		end
+			
+val retSome = max([4,6,3245,32,42,34,324]); (* this returns SOME 3245*)
+val retNone = max([]); (* this returns NONE*)
+val retInt = valOf(retSome); (* to get integer, convert to int from int some using valOf(SOME)*)
