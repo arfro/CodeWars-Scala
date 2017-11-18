@@ -4,26 +4,21 @@ datatype expression = Constant of int
                       | Multiply of expression * expression
 
 fun max_constant e =
-  case e of
-      Constant i => i
-    |  Add(e1, e2) =>
+  let fun max_of_two(e1, e2) =
         let val res1 = max_constant e1
             val res2 = max_constant e2
         in
             if res1 > res2
             then res1
             else res2
-        end
-    |  Multiply(e1, e2) =>
-      let val res1 = max_constant e1
-          val res2 = max_constant e2
-      in
-          if res1 > res2
-          then res1
-          else res2
-      end
-    | Negate e1 => max_constant e1
-
+            end
+  in
+  case e of
+      Constant i => i
+    |  Add(e1, e2) => max_of_two(e1,e2)
+    |  Multiply(e1, e2) => max_of_two(e1,e2)
+    |  Negate e1 => max_constant e1
+  end
 
 
 val test_exp = Add(Constant 15, Add(Constant 20, Constant 2))
