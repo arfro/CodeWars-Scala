@@ -6,12 +6,22 @@ datatype expression = Constant of int
 fun max_constant e =
   case e of
       Constant i => i
-    |  Add(e1, e2) => if max_constant e1 > max_constant e2
-                    then max_constant e1
-                    else max_constant e2
-    |  Multiply(e1, e2) => if max_constant e1 > max_constant e2
-                          then max_constant e1
-                          else max_constant e2
+    |  Add(e1, e2) =>
+        let val res1 = max_constant e1
+            val res2 = max_constant e2
+        in
+            if res1 > res2
+            then res1
+            else res2
+        end
+    |  Multiply(e1, e2) =>
+      let val res1 = max_constant e1
+          val res2 = max_constant e2
+      in
+          if res1 > res2
+          then res1
+          else res2
+      end
     | Negate e1 => max_constant e1
 
 
