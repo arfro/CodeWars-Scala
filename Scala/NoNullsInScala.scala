@@ -24,4 +24,4 @@ val convertedList = list.map(makeInt)
 val flattenedConvertedList = list.map(makeInt).flatten
 
 // ... or you can just use a flatmMp
-val flatmappedConvertedList = list.flatMap(makeInt)
+val flatmappedConvertedList = list.flatMNap(makeInt)
