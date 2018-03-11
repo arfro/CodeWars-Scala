@@ -1,10 +1,10 @@
-class Wrapper[Int](value: Int){
+class Wrapper[A](value: A){
 
-  def map(f: Int => Int) : Wrapper[Int] = {
+  def map[B](f: A => B) : Wrapper[B] = {
     val res = f(value)
     new Wrapper(res)
   }
-  def flatMap(f: Int => Wrapper[Int]) : Wrapper[Int] = f(value)
+  def flatMap[B](f: A => Wrapper[B]) : Wrapper[B] = f(value)
 
   override def toString = value.toString
 
